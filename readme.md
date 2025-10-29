@@ -2,7 +2,7 @@
 ## Course Lookup Utility (CTA7)
 
 ### 📌 Overview
-This small console program stores and looks up classroom information for a set of courses. It maps course numbers to room numbers, instructor names, and class start times. When run, the user is prompted to enter a course number from the available list; the program then displays the room, instructor, and time for that course.
+This small console program stores and looks up classroom information for a set of courses. It maps course numbers to room numbers, instructor names, and class start times. When run, the program shows the available course numbers and prompts the user to enter one. The prompt repeats in a loop so you can perform multiple lookups; enter `Q` (or `q`) at the prompt to quit. For each valid course number the program displays the room, instructor, and time for that course.
 
 This implementation was created for **Critical Thinking Assignment 7** for **CSC500 – Principles of Programming**.
 
@@ -47,7 +47,7 @@ Course not found.
 python CTA7.py
 ```
 
-3. Enter one of the displayed course numbers when prompted.
+3. Enter one of the displayed course numbers when prompted (or enter `Q` to quit).
 
 ---
 
