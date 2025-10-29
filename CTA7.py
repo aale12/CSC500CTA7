@@ -14,7 +14,7 @@ if __name__ == "__main__":
         "CSC102": "4501",
         "CSC103": "6755",
         "NET110": "1244",
-        "COM241": "1411"
+        "COM241": "1411",
     }
     # Course number to instructor name mapping
     course_instructors = {
@@ -22,37 +22,49 @@ if __name__ == "__main__":
         "CSC102": "Dr. Alvarado",
         "CSC103": "Dr. Rich",
         "NET110": "Dr. Burke",
-        "COM241": "Dr. Lee"
+        "COM241": "Dr. Lee",
     }
-    #  Course number to class start time mapping
+    # Course number to class start time mapping
     course_times = {
         "CSC101": "8:00 AM",
         "CSC102": "9:00 AM",
         "CSC103": "10:00 AM",
         "NET110": "11:00 AM",
-        "COM241": "1:00 PM"
+        "COM241": "1:00 PM",
     }
 
-    # Prompt user for course number from the available courses
-    course_number = input(
-    "\n\tCSC101"
-    "\n\tCSC102"
-    "\n\tCSC103"
-    "\n\tNET110"
-    "\n\tCOM241"
-    "\nEnter one of the above courses: ").strip().upper()
+    # Interactive loop: allow repeated lookups until the user quits
+    while True:
+        # Show available courses and prompt (user may enter 'q' to quit)
+        user_input = input(
+            "\n\tCSC101"
+            "\n\tCSC102"
+            "\n\tCSC103"
+            "\n\tNET110"
+            "\n\tCOM241"
+            "\nEnter one of the above courses (or q to quit): "
+        ).strip()
 
-    # Retrieve and display course information
-    if course_number in course_rooms:
-        # Get corresponding room, instructor, and time
-        room = course_rooms[course_number]
-        instructor = course_instructors[course_number]
-        time = course_times[course_number]
+        if not user_input:
+            # Empty input — prompt again
+            continue
 
-        # Display the course information
-        print(f"Course Number: {course_number}")
-        print(f"Room Number: {room}")
-        print(f"Instructor: {instructor}")
-        print(f"Class Time: {time}")
-    else:
-        print("Course not found.")
+        # Allow user to quit
+        if user_input.lower() == "q":
+            print("Goodbye.")
+            break
+        # Normalize input to uppercase for consistent dictionary lookup
+        course_number = user_input.upper()
+
+        # Retrieve and display course information
+        if course_number in course_rooms:
+            room = course_rooms[course_number]
+            instructor = course_instructors[course_number]
+            time = course_times[course_number]
+
+            print(f"Course Number: {course_number}")
+            print(f"Room Number: {room}")
+            print(f"Instructor: {instructor}")
+            print(f"Class Time: {time}")
+        else:
+            print("Course not found.")
